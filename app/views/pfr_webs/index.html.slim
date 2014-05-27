@@ -1,0 +1,35 @@
+h1 Неведомая база
+
+table border=1 margin-left=1 margin-right=1
+  thead
+    tr
+      th №
+      th СНИЛС
+      th Фамилия
+      th Имя
+      th Отчество
+      th Дата рождения
+      th Индекс
+      th В обработке
+      th
+      th
+      th
+
+  tbody
+    - @pfr_webs.each do |pfr_web|
+      tr
+        td
+        td = pfr_web.snils
+        td = pfr_web.lname
+        td = pfr_web.fname
+        td = pfr_web.dateb
+        td
+        td
+        td
+        td = link_to 'Показать', pfr_web
+        td = link_to 'Редактировать', edit_pfr_web_path(pfr_web)
+        td = link_to 'Удалить', pfr_web, data: {:confirm => 'Вы действительно хотите удалить запись?'}, :method => :delete
+
+br
+
+= link_to 'Новая запись', new_pfr_web_path

@@ -1,0 +1,24 @@
+= form_for @pfr_web do |f|
+  - if @pfr_web.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@pfr_web.errors.count, "error")} prohibited this pfr_web from being saved:"
+      ul
+        - @pfr_web.errors.full_messages.each do |message|
+          li = message
+
+  .field = f.label 'Снилс'
+  .text_field = f.text_field 'snils'
+  br
+  .field = f.label 'Фамилия'
+  .text_field = f.text_field 'lname'
+  br
+  .field = f.label 'Имя'
+  .text_field = f.text_field 'fname'
+  br
+  .field = f.label 'Отчество'
+  .text_field = f.text_field 'patr'
+  br
+  .field = f.label 'Дата рождения'
+  .text_field = f.text_field 'dateb'
+  br
+  .actions = f.submit 'Сохранить'
